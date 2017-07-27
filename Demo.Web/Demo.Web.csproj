@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Demo.DAL\Demo.DAL.csproj" />
     <ProjectReference Include="..\Demo.Entity\Demo.Entity.csproj" />
+    <ProjectReference Include="..\Demo.Services\Demo.Services.csproj" />
   </ItemGroup>
 
 </Project>

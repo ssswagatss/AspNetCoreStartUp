@@ -11,6 +11,8 @@ using Demo.Entity;
 using Microsoft.EntityFrameworkCore;
 using Demo.DAL.Interfaces;
 using Demo.DAL;
+using Demo.Services.Interfaces;
+using Demo.Services;
 
 namespace Demo.Web
 {
@@ -35,7 +37,15 @@ namespace Demo.Web
             services.AddDbContext<DemoContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DemoContext")));
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
+
+            //Resister your Repositories Here
             services.AddScoped(typeof(IStudentRepository), typeof(StudentRepository));
+
+
+            //Resister your Services Here
+            services.AddScoped(typeof(IStudentService), typeof(StudentService));
+
+
             services.AddMvc();
         }
 
