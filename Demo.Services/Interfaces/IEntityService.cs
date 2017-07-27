@@ -7,5 +7,7 @@ namespace Demo.Services.Interfaces
     public interface IEntityService<T>
     {
         IEnumerable<T> GetAll();
+        void Create(T entity);
+        void Update(T entity);
     }
 }

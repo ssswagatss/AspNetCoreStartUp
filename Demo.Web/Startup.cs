@@ -13,6 +13,7 @@ using Demo.DAL.Interfaces;
 using Demo.DAL;
 using Demo.Services.Interfaces;
 using Demo.Services;
+using AutoMapper;
 
 namespace Demo.Web
 {
@@ -47,6 +48,7 @@ namespace Demo.Web
 
 
             services.AddMvc();
+            services.AddAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

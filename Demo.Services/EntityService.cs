@@ -19,5 +19,18 @@ namespace Demo.Services
         {
             return Repository.GetAll();
         }
+        public void Create(T entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+
+            Repository.Add(entity);
+        }
+
+        public void Update(T entity)
+        {
+            if (entity == null) throw new ArgumentNullException(nameof(entity));
+            Repository.Edit(entity);
+        }
+
     }
 }
