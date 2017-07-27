@@ -4,22 +4,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Demo.Entity;
+using Demo.DAL.Interfaces;
 
 namespace Demo.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly DemoContext _context;
+        private readonly IStudentRepository _studentRepository;
 
-        public HomeController(DemoContext context)
+        //private readonly DemoContext _context;
+
+        public HomeController(IStudentRepository studentRepository)
         {
-            _context = context;
+            // _context = context;
+            _studentRepository = studentRepository;
         }
         public IActionResult Index()
         {
             //DemoContext db = new DemoContext();
 
-            var students = _context.Students.ToList();
+            var students = _studentRepository.GetAll().ToList(); ;
             return Ok(students);
         }
 

@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Demo.Entity;
 using Microsoft.EntityFrameworkCore;
+using Demo.DAL.Interfaces;
+using Demo.DAL;
 
 namespace Demo.Web
 {
@@ -32,6 +34,8 @@ namespace Demo.Web
             // Add framework services.
             services.AddDbContext<DemoContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DemoContext")));
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
+            services.AddScoped(typeof(IStudentRepository), typeof(StudentRepository));
             services.AddMvc();
         }
 
