@@ -1,0 +1,2 @@
+# AspNetCoreStartUp
+Startup Project 
